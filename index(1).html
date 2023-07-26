@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fa62c117c7.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @keyframes slideInRight {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-left {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .intro-heading {
+      animation: slideInRight 1s ease;
+    }
+
+    .fade-in-left {
+      animation: fade-in-left 1s ease;
+    }
+
+    /* Align main heading labels to the left side */
+    .about h1,
+    .about h2 {
+      text-align: left;
+    }
+
+    /* New CSS classes for section animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CSS to display the logos side by side */
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      margin-right: 10px;
+    }
+
+    /* New styles for the "About the Project" section */
+    .about__project-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about__project-details {
+      width: 50%;
+    }
+
+    .about__project-details img {
+      width: 110%;
+      max-width: 400px;
+      display: block;
+      margin-left: auto;
+    }
+
+    /* Contact section */
+    .contact-section {
+      background-color: white;
+      padding: 40px 0;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+    }
+
+    .contact-section__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .contact-section__form input,
+    .contact-section__form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+
+    .contact-section__form button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .contact-section__form button:hover {
+      background-color: #45a049;
+    }
+
+    /* Scroll to top button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: none;
+    }
+    .link--nav {
+  text-transform: capitalize;
+  
+}
+    /* Team members section */
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .team-member {
+      max-width: 150px;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      animation: fade-in-left 1s ease;
+    }
+
+    .team-member img {
+      width: 100%;
+      object-fit: cover; 
+  border-radius: 5px;
+      
+    }
+  
+
+    .team-member h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .team-member p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .team-member .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .team-member .btn:hover {
+      background-color: #45a049;
+    }
+
+    body {
+    margin: 0;
+    padding: 0;
+  }
+   h2{
+    
+  color: white;
+  text-shadow: 1px 1px 2px rgb(8, 140, 235),0 0 5px rgb(2, 2, 82);
+
+   }
+  .footer {
+    background-color: #0074D9; /* Change to blue color */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex; /* Add this to create a flex container */
+    justify-content: center; /* Add this to center the content horizontally */
+  }
+
+  .footer__text {
+    margin: 0;
+  }
+  </style>
+  <title>IPAMS</title>
+</head>
+<body class="light" id="top">
+  <header class="header center">
+    <div class="logo-container">
+      <img src="vit_logo.jpg" alt="vit logo" width="110" height="100">
+      <img src="ipams_logo.png" alt="ipams logo" width="100" height="90">
+    </div>
+    <nav class="nav center">
+      <ul class="nav__list center">
+        <li class="nav__list-item">
+          <a class="link link--nav" href="#Home">Home</a>
+        </li>
+        <li class="nav__list-item">
+          <a class="link link--nav" href="#purpose">Purpose</a>
+        </li>
+        <li class="nav__list-item">
+          <a class="link link--nav" href="#project">Project</a>
+        </li>
+        <li class="nav__list-item">
+          <a class="link link--nav" href="#team">Team</a>
+        </li>
+        <li class="nav__list-item">
+          <a class="link link--nav" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="about center">
+      <h1 id="Home" class="intro-heading fade-in">Introducing <span class="about__name">IPAMS</span></h1>
+      <div class="about__project-container">
+        <div class="about__project-details fade-in-left" id="project">
+          <h2 class="about__role">About the Project:</h2>
+          <p class="about__desc" style="text-align: justify;">
+            IPAMS is a cutting-edge Interview Performance Assessment and Monitoring System that revolutionizes interviews. Utilizing Arduino, sensors, wireless data transmission, machine learning, and Flask web development, it offers real-time feedback on candidates' performance. Physiological data, such as heart rate and GSR values, are collected via Arduino-based sensors and analyzed using machine learning algorithms. IPAMS identifies patterns and correlations, providing objective insights and confidence levels of the candidate for interviewers. Its innovative approach empowers candidates to make immediate adjustments, enhancing their performance. With improved objectivity and efficiency, IPAMS leads to better hiring decisions and an overall enhanced interview experience.
+          </p>
+        </div>
+        <div class="about__project-details fade-in-left">
+          <img src="interview_pic.png" alt="Interview" class="about__project-image">
+        </div>
+      </div>
+      <h2 class="about__role fade-in-left" id="purpose">Purpose of the Project:</h2>
+      <p class="about__desc fade-in-left"  style="text-align: justify;">
+        The IPAMS project aims to create an interview testing system using Arduino, sensors, wireless data transmission, machine learning, and Flask web development. The system captures physiological data from candidates during interviews and provides real-time feedback based on the analysis of that data. Key milestones include sensor data acquisition and processing, machine learning model training and real-time analysis, web application development and visualization, and deployment with security measures. Proposed features include real-time data capture, machine learning-based analysis, immediate feedback, and a web-based interface. Successful completion of the project can lead to an objective and efficient interview assessment system, improving hiring decisions and the overall interview process. Specific implementation, deliverables, and scope may vary based on project requirements and constraints.
+      </p>
+      <h2 class="about__role fade-in-left">Visit IPAMS Project</h2>
+      <div class="about__contact center fade-in">
+        <a href="hero.html" target="_blank">
+          <span class="btn btn--outline">Go to IPAMS</span>
+        </a>
+      </div>
+    </div>
+
+    <section class="section skills fade-in" id="team">
+      <h2 class="section__title">Developer Team</h2>
+      <div class="team-members center">
+        <div class="team-member fade-in">
+         
+            <img src="manasa1.png" alt="Team Member 1">
+            <h3>Manasa Viriyala</h3>
+            <p>Frontend Developer</p>
+            
+            <a class="btn btn--outline" href="https://www.linkedin.com/in/manasa-viriyala-093288227/" target="_blank">More Info</a>
+          </div>
+          <div class="team-member fade-in">
+          <img src="sathvik.png" alt="Team Member 2">
+          <h3>Sathvik Vadarevu</h3>
+          <p>ML Engineer</p>
+          <a class="btn btn--outline" href="https://www.linkedin.com/in/sathvik-vadarevu-308782224/" target="_blank">More Info</a>
+        </div>
+     
+        <div class="team-member fade-in">
+          <img src="dinesh1.png" alt="Team Member 3">
+          <h3>Kotha Dinesh</h3>
+          <p>Documentation Head</p>
+          <a class="btn btn--outline" href="https://www.linkedin.com/in/kotha-dinesh-sai-01174b22a/" target="_blank">More Info</a>
+        </div>
+        <div class="team-member fade-in">
+          <img src="kartikeya.png" alt="Team Member 4">
+          <h3>G.T Kartikeya</h3>
+          <p>Data Researcher</p>
+          <a class="btn btn--outline" href="https://www.linkedin.com/in/tribuvana-kartikeya-g-121610257/" target="_blank">More Info</a>
+        </div>
+        <div class="team-member fade-in">
+          <img src="komal.png" alt="Team Member 5">
+          <h3>Sai Komal</h3>
+          <p>Hardware Developer</p>
+          <a class="btn btn--outline" href="http://www.linkedin.com/in/komal-garlapati-2072b3247" target="_blank">More Info</a>
+        </div>
+        <div class="team-member fade-in">
+          <img src="venkat1.jpeg" alt="Team Member 6">
+          <h3>Venkat</h3>
+          <p>Hardware Developer</p>
+          <a class="btn btn--outline" href="https://www.linkedln.com/in/venkat-vinukonda-588ab5278" target="_blank">More Info</a>
+        </div>
+        
+        
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <div class="contact-section__form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="button" onclick="sendContactMessage()">Send Message</button>
+      </div>
+    </section>
+
+    <footer class="footer center">
+      <p class="footer__text">
+        This is an ECS project done with the support of Engineering Clinics VIT-AP. All rights reserved.
+      </p>
+    </footer>
+    
+  </main>
+
+  <script>
+    // Function to check if an element is in the viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    // Function to handle the scroll event and trigger animations
+    function handleScrollAnimations() {
+      const sections = document.querySelectorAll(".fade-in");
+      sections.forEach((section) => {
+        if (isInViewport(section)) {
+          section.classList.add("active");
+        }
+      });
+    }
+
+    // Add an event listener for scroll events
+    window.addEventListener("scroll", handleScrollAnimations);
+
+    // Call the function once on page load to trigger initial animations
+    handleScrollAnimations();
+
+    // Scroll to top button
+    const scrollToTopBtn = document.querySelector(".scroll-to-top");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 100) {
+        scrollToTopBtn.style.display = "block";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    // Function to handle the contact form submission
+    function sendContactMessage() {
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+
+      if (nameInput.value.trim() === "" || emailInput.value.trim() === "" || messageInput.value.trim() === "") {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Simulate successful message sending
+      alert("Message successfully sent!");
+      nameInput.value = "";
+      emailInput.value = "";
+      messageInput.value = "";
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
